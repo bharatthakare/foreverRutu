@@ -706,6 +706,40 @@ input[type=range][orient=vertical] {
 }
 
 /* --------------------------------------------------------------------------
+   5b. Developer Credits Footer
+   -------------------------------------------------------------------------- */
+.developer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.35rem 1rem;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  width: 100%;
+  z-index: 15;
+}
+
+.purple-heart {
+  color: var(--neon-accent);
+  font-style: normal;
+  display: inline-block;
+  filter: drop-shadow(0 0 6px var(--neon-purple-glow));
+  animation: heart-beat 1.8s infinite ease-in-out;
+}
+
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+.footer-credit strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
    6. Off-Screen YouTube Audio Engine Container
    -------------------------------------------------------------------------- */
 #youtube-audio-engine-container {
