@@ -534,6 +534,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animateVisualizer();
 
+  /* ==========================================================================
+     11. Touch & Click Floating Purple Heart (💜) Particle Effect
+     ========================================================================== */
+  function spawnPurpleHeart(x, y) {
+    if (typeof x !== 'number' || typeof y !== 'number' || isNaN(x) || isNaN(y)) return;
+
+    const heart = document.createElement('span');
+    heart.className = 'floating-heart';
+    heart.textContent = '💜';
+
+    const randomX = (Math.random() - 0.5) * 60; // -30px to +30px sway
+    const randomRot = (Math.random() - 0.5) * 50; // -25deg to +25deg rotation
+    heart.style.setProperty('--dx', `${randomX}px`);
+    heart.style.setProperty('--rot', `${randomRot}deg`);
+
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      if (heart && heart.parentNode) {
+        heart.parentNode.removeChild(heart);
+      }
+    }, 1200);
+  }
+
+  // Pointerdown Event - Universal handler for touch, tap, stylus, and mouse click
+  window.addEventListener('pointerdown', (e) => {
+    spawnPurpleHeart(e.clientX, e.clientY);
+  }, { passive: true });
+
   // Load YouTube API
   loadYouTubeAPI();
 });

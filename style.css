@@ -1398,4 +1398,35 @@ kbd {
   }
 }
 
+/* --------------------------------------------------------------------------
+   11. Floating Touch/Click Purple Heart Particle Effect
+   -------------------------------------------------------------------------- */
+.floating-heart {
+  position: fixed !important;
+  pointer-events: none !important;
+  font-size: 1.6rem !important;
+  z-index: 999999 !important;
+  user-select: none !important;
+  line-height: 1 !important;
+  display: block !important;
+  animation: floatUpAndFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.95)) drop-shadow(0 0 22px rgba(192, 132, 252, 0.8));
+}
+
+@keyframes floatUpAndFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--dx, 0px)), -65px) scale(1.4) rotate(var(--rot, 0deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx, 0px)), -130px) scale(0.8) rotate(var(--rot, 0deg));
+  }
+}
+
+
 
