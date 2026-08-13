@@ -1113,14 +1113,14 @@ kbd {
 /* Standard Large Laptops & Desktops (> 1200px) */
 @media (min-width: 1201px) {
   .app-container {
-    padding: 2rem 3rem;
+    padding: 2rem 3rem 1.25rem 3rem;
   }
 }
 
 /* Laptops & Small Desktops (992px to 1200px) */
 @media (max-width: 1200px) {
   .app-container {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
   }
   .main-title {
     font-size: clamp(3rem, 7vw, 5.5rem);
@@ -1133,6 +1133,9 @@ kbd {
 
 /* Tablets (768px to 991px) */
 @media (max-width: 991px) {
+  .app-container {
+    padding: 1rem 1.25rem 0.85rem 1.25rem;
+  }
   .top-header {
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -1160,108 +1163,155 @@ kbd {
   }
 }
 
-/* Mobile Devices & Small Tablets (< 768px) */
+/* Mobile Devices & Small Tablets (< 767px) */
 @media (max-width: 767px) {
   html, body {
     height: 100dvh; /* Dynamic Mobile Viewport */
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .app-container {
-    padding: 0.85rem 0.75rem;
+    padding: 0.5rem 0.65rem 0.4rem 0.65rem;
+    height: 100dvh;
+    max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
   }
 
   /* Header Layout on Mobile */
   .top-header {
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.4rem;
+    width: 100%;
+    flex-shrink: 0;
   }
 
   .header-left {
     justify-content: center;
     width: 100%;
-    gap: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .clock-badge, .status-pill {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
   }
 
   .header-nav {
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.35rem;
   }
 
   .glass-btn {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.72rem;
   }
 
-  /* Center Hero Title Scaling */
+  /* Center Hero Section Optimization for Mobile Height */
   .center-branding {
-    padding: 1rem 0.5rem;
+    padding: 0.2rem 0.4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
   }
 
   .brand-badge {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    margin-bottom: 0.4rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 0.2rem;
   }
 
   .main-title {
-    font-size: clamp(2.4rem, 11vw, 4.2rem);
-    margin-bottom: 0.3rem;
+    font-size: clamp(1.8rem, 8.5vw, 3.2rem);
+    margin-bottom: 0.15rem;
   }
 
   .subtitle {
-    font-size: clamp(0.65rem, 3.2vw, 0.9rem);
-    letter-spacing: 0.22em;
-    margin-bottom: 1.25rem;
+    font-size: clamp(0.58rem, 2.2vw, 0.75rem);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-quote {
+    padding: 0.4rem 0.85rem;
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.72rem, 2.6vw, 0.88rem);
+    max-width: 96vw;
+    border-left-width: 2.5px;
   }
 
   .now-playing-badge {
-    padding: 0.4rem 0.9rem;
-    font-size: 0.75rem;
-    max-width: 95vw;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.72rem;
+    max-width: 96vw;
   }
 
-  /* Bottom Player Bar Mobile Stacking */
+  /* Bottom Player Bar - High Contrast Glass Box & Zero Clipping */
   .bottom-player-bar {
     position: relative;
     flex-direction: column;
     align-items: stretch;
-    padding: 0.75rem 0.9rem;
-    gap: 0.6rem;
-    border-radius: 20px;
+    padding: 0.6rem 0.75rem;
+    gap: 0.45rem;
+    border-radius: 18px;
+    background: rgba(18, 9, 32, 0.88);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(168, 85, 247, 0.25);
+    width: 100%;
+    flex-shrink: 0;
   }
 
   .player-left {
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% - 36px);
+    max-width: calc(100% - 36px);
     justify-content: flex-start;
+    gap: 0.75rem;
   }
 
   .cd-cover-frame {
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
   }
 
   .track-title {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    color: #ffffff;
   }
 
   .track-artist {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .player-center {
     width: 100%;
     max-width: 100%;
-    gap: 0.3rem;
+    gap: 0.25rem;
   }
 
   .player-controls {
     gap: 0.75rem;
+  }
+
+  .control-btn {
+    padding: 0.4rem;
+  }
+
+  .control-btn svg {
+    width: 18px;
+    height: 18px;
   }
 
   .play-btn {
@@ -1274,32 +1324,78 @@ kbd {
     height: 18px;
   }
 
+  /* Scrubber Timeline - Always Visible & Crystal Clear on Touch Devices */
+  .timeline-wrapper {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .time-stamp {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.9);
+    min-width: 34px;
+  }
+
+  .timeline-container {
+    height: 16px;
+  }
+
+  .timeline-bg {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .timeline-progress {
+    height: 4px;
+  }
+
+  .timeline-handle {
+    width: 11px;
+    height: 11px;
+    transform: translate(-50%, -50%) scale(1); /* Always visible thumb on mobile */
+  }
+
   .player-right {
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
+    top: 0.5rem;
+    right: 0.5rem;
     min-width: auto;
   }
 
-  /* Volume Popover Mobile Placement */
   .volume-popover {
-    right: -10px;
-    bottom: calc(100% + 10px);
+    right: -6px;
+    bottom: calc(100% + 8px);
+  }
+
+  /* Developer Credits Footer Mobile */
+  .developer-footer {
+    padding: 0.2rem 0;
+    margin-top: 0.2rem;
+    font-size: 0.72rem;
+    flex-shrink: 0;
   }
 }
 
 /* Extra Small Phones (< 380px) */
 @media (max-width: 379px) {
   .glass-btn {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.68rem;
   }
   .clock-badge, .status-pill {
-    padding: 0.35rem 0.6rem;
-    font-size: 0.7rem;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.68rem;
   }
   .main-title {
-    font-size: 2.1rem;
+    font-size: 1.65rem;
+  }
+  .hero-quote {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .bottom-player-bar {
+    padding: 0.5rem 0.6rem;
   }
 }
+
 
